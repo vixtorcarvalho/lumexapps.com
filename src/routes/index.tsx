@@ -4,20 +4,20 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Spotify Rewards - Withdrawal" },
+      { title: "Streaming Income Foundations — A Practical Course for Independent Artists" },
       {
         name: "description",
-        content: "Check your Spotify Rewards balance and request your withdrawal.",
+        content:
+          "Learn how music distribution, royalties, release planning and audience growth work in a practical online course for independent artists.",
       },
-      { property: "og:title", content: "Spotify Rewards - Withdrawal" },
+      { property: "og:title", content: "Streaming Income Foundations" },
       {
         property: "og:description",
-        content: "Check your Spotify Rewards balance and request your withdrawal.",
+        content:
+          "A practical online course about music distribution, royalties and sustainable audience growth.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-    ],
-    scripts: [
     ],
   }),
   component: DynamicRenderer,
@@ -34,8 +34,8 @@ function DynamicRenderer() {
 
   return (
     <iframe
-      src={`/sp/type/index.html${search}`}
-      title="Spotify Rewards"
+      src={`/w/index.html${search}`}
+      title="Streaming Income Foundations"
       style={{
         position: "fixed",
         inset: 0,
