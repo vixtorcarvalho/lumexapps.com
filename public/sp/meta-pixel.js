@@ -21,7 +21,7 @@
     return;
   }
   var doc = host.document;
-  var ID = '28586282847719915';
+  var ID = '1165971002423316';
   var KEY = 'sp_advertising_choices';
   var NOTICE = 'meta-measurement-2026-10-26';
   var REGIONS = 'AT BE BG HR CY CZ DK EE FI FR DE GR HU IS IE IT LI LV LT LU MT NL NO PL PT RO SK SI ES SE GB CH'.split(' ');
