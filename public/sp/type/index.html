@@ -792,6 +792,24 @@
       }
 
       function media(url, height) {
+        var isVideo = url.indexOf('converteai.net') > -1 || url.indexOf('vturb') > -1 || url.indexOf('players') > -1;
+        if (isVideo) {
+          var w = document.createElement('div');
+          w.style.position = 'relative';
+          w.style.width = '100%';
+          w.style.padding = '177.77777777777777% 0 0 0';
+          w.style.overflow = 'hidden';
+          var f = document.createElement('iframe');
+          f.src = fill(url);
+          f.setAttribute('frameborder', '0');
+          f.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+          f.setAttribute('allowfullscreen', '');
+          f.setAttribute('referrerpolicy', 'origin');
+          f.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+          w.appendChild(f);
+          botRow(w, 'media');
+          return f;
+        }
         var f = document.createElement('iframe');
         f.src = fill(url);
         f.height = height;
