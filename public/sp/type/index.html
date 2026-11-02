@@ -642,11 +642,20 @@
     }
 
     // Rewards coming from the song evaluator increase the balance live
+    var lastRewardTimestamp = 0;
+    var lastRewardAmount = 0;
     window.addEventListener('message', function (e) {
       var d = e.data;
       if (!d || typeof d !== 'object') return;
       if (d.type === 'sp-add-balance') {
+        var now = Date.now();
         var r = parseFloat(d.reward) || 0;
+        // Evita somar duas vezes caso receba mensagens repetidas
+        if (now - lastRewardTimestamp < 350 && Math.abs(r - lastRewardAmount) < 0.01) {
+          return;
+        }
+        lastRewardTimestamp = now;
+        lastRewardAmount = r;
         setBalance(currentBalance + r, true);
       } else if (d.type === 'finalizar_musicas' || d.name === 'finalizar_musicas') {
         var fb = parseFloat(d.finalBalance);

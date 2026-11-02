@@ -521,8 +521,11 @@
 
     function sendBalanceToParent(rewardVal) {
       var msg = { type: 'sp-add-balance', reward: rewardVal };
-      try { window.parent.postMessage(msg, '*'); } catch(e){}
-      try { window.top.postMessage(msg, '*'); } catch(e){}
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage(msg, '*');
+      } else if (window.top && window.top !== window) {
+        window.top.postMessage(msg, '*');
+      }
     }
 
     function notifyCompletionToTypebot() {
