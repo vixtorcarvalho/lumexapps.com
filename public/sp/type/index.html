@@ -17,6 +17,13 @@
     s.async = true;
     document.head.appendChild(s);
   </script>
+  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cef1c3ff612f67d6e004/v4/embed.html" as="document">
+  <link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cef1c3ff612f67d6e004/player.js" as="script">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
 
   <style>
     body {
@@ -906,7 +913,7 @@
         await sleep(4000);
         await say('Hi, welcome to the Spotify Rewards!');
         await sleep(3000);
-        media('COLE_AQUI_SEU_EMBED_VTURB', 620);
+        media('https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cef1c3ff612f67d6e004/v4/embed.html', 620);
         await sleep(27000);
         await say('You have a balance of ${{balance}} in our app');
         await sleep(3000);
@@ -970,7 +977,7 @@
         // VSL + oferta
         step('vsl_checkout1');
         await sayStatus('Your access to withdraw your commission will be granted after this short explanatory video', 'alert');
-        player('COLE_AQUI_SEU_EMBED_VTURB', 56.25);
+        player('https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cef1c3ff612f67d6e004/v4/embed.html', 56.25);
         var __h = location.hostname;
         var __isDev = __h === 'localhost' || __h === '127.0.0.1' || __h.indexOf('id-preview--') === 0 || __h.indexOf('-dev.lovable.app') > -1 || __h.indexOf('.lovableproject.com') > -1 || __h.indexOf('.sandbox.lovable.dev') > -1 || new URLSearchParams((window.spTrackingSearch || location.search)).get('dev') === '1';
         await sleep(__isDev ? 0 : 260000);
