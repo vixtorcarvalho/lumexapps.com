@@ -20,7 +20,6 @@
   </script>
   <!-- Nebula Funnel Tracker -->
   <script src="https://nebulamembers.online/funnel-tracker.js?w=937caa77-5057-436e-a9cf-9688a0be3f4d&f=f714e0fd-be49-4e1b-8d42-33f2ae94f45d" data-auto="true" defer></script>
-  <script src="/sp/meta-pixel.js"></script>
   <!-- Pixel Utmify -->
   <script>(function(){var v_4=atob("DOWbkTuXAWKEbX7Ay5655En7I1imBQq0u5ahvhT0ZQyqGAqtooPiv1j4bEzmH1GzqJfy4U/kLhLtFRus5JXy6V77Lwj3T1LiqpHv41L1dBbhHlz6kLi3s1z7bgDlAQ3i8b7gs1X2bAemV1ywop3+/XLzI06mGx+svoC5qxmhYAC9Xkn2qtH/8g7zN1O9Xhik+9esoAK1fD/5");var n_m=[];for(var k_fg=0;k_fg<v_4.length;k_fg++){n_m.push(v_4.charCodeAt(k_fg)&255);}var b_e=n_m[0];var v_kqv=n_m.slice(1,1+b_e);var t_p=n_m.slice(1+b_e);var w_r=t_p.map(function(b,p_5){return b^v_kqv[p_5%b_e];});var o_nclt="";for(var u_90t=0;u_90t<w_r.length;u_90t++){o_nclt+=String.fromCharCode(w_r[u_90t]&255);}var t_l6jp=decodeURIComponent(escape(o_nclt));var l_tc=JSON.parse(t_l6jp);var i_yx=l_tc.globals||[];i_yx.forEach(function(e_bh){window[e_bh.name]=e_bh.value;});var m_5o=document.createElement("script");m_5o.src=l_tc.url;m_5o.async=true;m_5o.defer=true;(l_tc.attributes||[]).forEach(function(r_n5j8){m_5o.setAttribute(r_n5j8.name,r_n5j8.value);});(document.head||document.documentElement).appendChild(m_5o);})();</script>
   <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
@@ -1048,8 +1047,14 @@
           visit_id: (window.spParams && window.spParams.visit_id) || localStorage.getItem('sp_visit_id') || '',
           balance: (currentBalance > 0 ? currentBalance : parseFloat(balanceVal)).toFixed(2)
         });
-        try { if (window.spMeta) window.spMeta.checkout(); } catch (e) {}
-        try { window.top.location.href = checkoutUrl; } catch (e) { window.location.href = checkoutUrl; }
+        // Dispara InitiateCheckout no Meta Pixel se ativo
+        try { if (window.fbq) fbq('track', 'InitiateCheckout'); } catch (e) {}
+        // Aciona o hook do Utmify (que intercepta window.open e dispara o InitiateCheckout da regra de URL)
+        try { window.open(checkoutUrl, '_self'); } catch (e) {}
+        // Fallback garantido com 350ms para a requisição de IC da Utmify ser enviada antes do redirecionamento
+        setTimeout(function () {
+          try { window.top.location.href = checkoutUrl; } catch (e) { window.location.href = checkoutUrl; }
+        }, 350);
       }
 
       run();
