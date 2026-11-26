@@ -362,7 +362,7 @@
     <!-- PROGRESS -->
     <div class="progress-head">
       <div class="progress-top">
-        <span id="progressLabel">Song 1 of 4</span>
+        <span id="progressLabel">Canción 1 de 4</span>
         <span class="progress-earned" id="progressEarned">Earned $0.00</span>
       </div>
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
@@ -370,7 +370,7 @@
 
     <!-- INSTRUCTION BANNER -->
     <div class="instruction-banner" id="instructionBanner">
-      🎵 Press <strong>PLAY</strong> to listen to the preview and unlock the evaluation.
+      🎵 Presiona <strong>PLAY</strong> para escuchar la vista previa y desbloquear la evaluación.
     </div>
 
     <!-- SONG ROW -->
@@ -385,7 +385,7 @@
       <div class="song-info">
         <div class="song-name" id="songName">Someone Like You</div>
         <div class="song-artist-row">
-          <span class="badge-preview">PREVIEW</span>
+          <span class="badge-preview">VISTA PREVIA</span>
           <span class="song-artist" id="songArtist">Adele</span>
         </div>
       </div>
@@ -400,21 +400,21 @@
       <div class="question-block">
         <p class="question-title" id="q1Title">Do you listen to Adele often?</p>
         <div class="yn-row">
-          <button class="yn-btn" id="q1Yes">Yes</button>
+          <button class="yn-btn" id="q1Yes">Sí</button>
           <button class="yn-btn" id="q1No">No</button>
         </div>
       </div>
       <div class="question-block" id="q2Block" style="display:none">
         <p class="question-title" id="q2Title">Do you usually listen to Someone Like You?</p>
         <div class="yn-row">
-          <button class="yn-btn" id="q2Yes">Yes</button>
+          <button class="yn-btn" id="q2Yes">Sí</button>
           <button class="yn-btn" id="q2No">No</button>
         </div>
       </div>
     </div>
 
     <!-- FINISH BTN -->
-    <button class="finish-btn" id="finishBtn" disabled>FINISH &amp; EARN</button>
+    <button class="finish-btn" id="finishBtn" disabled>FINALIZAR Y GANAR</button>
 
     <!-- SUCCESS CARD -->
     <div class="success-card" id="successCard">
@@ -423,8 +423,8 @@
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
       </div>
-      <div class="success-title">Evaluation Submitted!</div>
-      <div class="received-label">Balance Received</div>
+      <div class="success-title">¡Evaluación Enviada!</div>
+      <div class="received-label">Saldo Acreditado</div>
       <div class="received-val" id="rewardAmount">+$67.45</div>
     </div>
 
@@ -620,7 +620,7 @@
       questionsWrap.style.display = 'flex';
       songCard.style.display = 'flex';
       instructionBanner.style.display = 'block';
-      instructionBanner.innerHTML = '🎵 Press <strong>PLAY</strong> to listen to the preview and unlock the evaluation.';
+      instructionBanner.innerHTML = '🎵 Presiona <strong>PLAY</strong> para escuchar la vista previa y desbloquear la evaluación.';
       successCard.classList.remove('show');
       updateProgress();
       if (isDevelopment) {
@@ -696,7 +696,7 @@
               isPlaying = false;
               setPlayIcon(false);
               if (simInterval) { clearInterval(simInterval); simInterval = null; }
-              instructionBanner.innerHTML = '🎉 Preview unlocked! Answer the questions below and tap <strong>FINISH & EARN</strong>';
+              instructionBanner.innerHTML = '🎉 ¡Vista previa desbloqueada! Responde las preguntas abajo y presiona <strong>FINALIZAR Y GANAR</strong>';
               unlockQuestions();
             }
           }
@@ -761,7 +761,7 @@
           instructionBanner.style.margin = 'auto 0';
           instructionBanner.style.fontSize = '13px';
           instructionBanner.style.padding = '16px';
-          instructionBanner.innerHTML = '🎉 <strong style="font-size:15px; margin-bottom:4px;">Daily Limit Reached!</strong>Continue in the chat below to withdraw your <strong>$438.77</strong>.';
+          instructionBanner.innerHTML = '🎉 <strong style="font-size:15px; margin-bottom:4px;">¡Límite Diario Alcanzado!</strong>Continúa en el chat abajo para retirar tus <strong>$438.77</strong>.';
         }
       }, 800);
     });
