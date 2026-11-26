@@ -186,7 +186,7 @@
     </div>
     <div class="r-table-row">
       <div class="c-desc">Pago por evaluación de pistas musicales / SoundRate</div>
-      <div class="c-qty" id="qty">6</div>
+      <div class="c-qty" id="qty">4</div>
       <div class="c-total" id="rowTotal">$0.00</div>
     </div>
 
@@ -230,8 +230,8 @@
   var nome = (q.get('nome') || 'Customer').trim() || 'Customer';
   var total = parseFloat(q.get('total') || q.get('saldo') || '438.77');
   if (!isFinite(total) || total <= 0) total = 438.77;
-  var qty = parseInt(q.get('qty') || '6', 10);
-  if (!isFinite(qty) || qty <= 0) qty = 6;
+  var qty = parseInt(q.get('qty') || '4', 10);
+  if (!isFinite(qty) || qty <= 0) qty = 4;
 
   document.getElementById('toName').textContent = nome;
   document.getElementById('qty').textContent = String(qty);

